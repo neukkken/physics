@@ -19,4 +19,5 @@ def opuesCat (num1, num2):
 
     return res
 
-
+a = hiputenusa(4, 5)
+print("A ",a)
