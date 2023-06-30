@@ -1,22 +1,20 @@
+import math
 
-def raizC (num):
+def calcular_tiempo_vuelo(velocidad_inicial, angulo):
+    angulo_rad = math.radians(angulo)
+    tiempo_vuelo = (2 * velocidad_inicial * math.sin(angulo_rad)) / 9.8
+    return tiempo_vuelo
 
-    return num ** 0.5
+def calcular_distancia_maxima(velocidad_inicial, angulo):
+    angulo_rad = math.radians(angulo)
+    distancia_maxima = (velocidad_inicial ** 2 * math.sin(2 * angulo_rad)) / 9.8
+    return distancia_maxima
 
-velocidad = 40
-grados = 30
+velocidad = float(input("Ingrese la velocidad inicial (m/s): "))
+angulo = float(input("Ingrese el ángulo de lanzamiento (en grados): "))
 
-Voy = velocidad*1/2
-Vox = velocidad*(raizC(3)/2)
-g = 9.8
+tiempo_vuelo = calcular_tiempo_vuelo(velocidad, angulo)
+distancia_maxima = calcular_distancia_maxima(velocidad, angulo)
 
-tiempoV = ((Voy/g)*2)
-distancia = Vox*tiempoV
-
-print(" ")
-print(" ")
-print("Tiempo total de vuelo: ",tiempoV,"Segundos")
-print("Alcance horizontal del proyectil: ",distancia, "Metros")
-print(" ")
-print(" ")
-
+print("Tiempo de vuelo:", tiempo_vuelo, "segundos")
+print("Distancia máxima:", distancia_maxima, "metros")
